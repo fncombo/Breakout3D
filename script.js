@@ -178,9 +178,6 @@
 			normalGeometry = new THREE.CubeGeometry(size, size * 0.5, size),
 			specialGeometry = new THREE.SphereGeometry(size / 2, size, size);
 
-		// Show loading screen
-		$loading.removeClass('hide');
-
 		// Change music
 		if ((level !== 1 && newLevel === 1) || newLevel !== 1 || newLevel !== level) {
 			changeMusic(levels[newLevel].music);
@@ -756,9 +753,18 @@
 	 * Go on to the next level
 	 */
 	$('#next-level').onclick = function () {
-		setLevel(level + 1);
+
+		// Show loading screen
+		$loading.removeClass('hide');
+
+		// Wait 200ms before starting loading the next level to finish for the loading screen animation
+		setTimeout(function () {
+			setLevel(level + 1);
+		}, 200);
+
 		$('#well-done').addClass('hide');
 		$hgroup.removeClass('hide');
+
 	};
 
 
@@ -770,7 +776,13 @@
 		$lives.innerHTML = $wraths.innerHTML = 3;
 		$points.innerHTML = 0;
 
-		setLevel(1);
+		// Show loading screen
+		$loading.removeClass('hide');
+
+		// Wait 200ms before starting loading the next level to finish for the loading screen animation
+		setTimeout(function () {
+			setLevel(1);
+		}, 200);
 
 		$hgroup.removeClass('hide');
 		$('#completed').addClass('hide');
