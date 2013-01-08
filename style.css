@@ -1,0 +1,115 @@
+/* ==================================================================================================== *\
+   Misc
+\* ==================================================================================================== */
+@charset "UTF-8";
+
+@font-face {
+	font-family:'Myriad Pro';
+	src:url('fonts/myriadpro-regular-webfont.woff');
+	font-weight:normal;
+	font-style:normal;
+}
+
+@-webkit-keyframes loading {
+   to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes loading {
+   to {transform:rotate(360deg);}
+}
+
+
+
+/* ==================================================================================================== *\
+   Main
+\* ==================================================================================================== */
+* {box-sizing:border-box; margin:0; padding:0;}
+html, body {width:100%; height:100%; overflow:hidden; color:#fff; font-family:'Myriad Pro'; font-size:16px;}
+
+a {color:hsl(0, 0%, 50%);}
+a:hover {color:hsl(0, 0%, 75%);}
+
+canvas {cursor:none;}
+
+iframe {position:absolute; top:-9999px; left:-9999px;}
+
+
+
+/* ==================================================================================================== *\
+   Headings
+\* ==================================================================================================== */
+hgroup {background:rgba(0, 0, 0, 0.5); width:100%; height:8em; position:absolute; top:3%; text-align:center; opacity:1; -webkit-transition:all 0.2s linear; transition:all 0.2s linear;}
+h1, h2, h3, h4, h5, h6 {margin:0; padding:0; font-weight:normal;}
+h1 {margin:1.2em 0 -1em; font-size:1em; opacity:0.5;}
+h2 {font-size:4em;}
+h3 {font-size:2em;}
+
+
+
+/* ==================================================================================================== *\
+   Level info
+\* ==================================================================================================== */
+#info {color:rgba(255, 255, 255, 0.5);}
+#info div {display:inline-block; margin:0 1em;}
+
+#difficulty {text-transform:capitalize;}
+
+
+
+/* ==================================================================================================== *\
+   Common stuff
+\* ==================================================================================================== */
+.hide {opacity:0; visibility:hidden; -webkit-transform:scale(1.5); transform:scale(1.5);}
+.hidden {display:none;}
+
+.overlay {background:rgba(0, 0, 0, 0.5); width:100%; height:100%; position:absolute; top:0; left:0; text-align:center; line-height:1.5; -webkit-transition:all 0.2s linear; transition:all 0.2s linear;}
+.overlay:before {content:''; display:inline-block; height:100%; vertical-align:middle; margin-left:-0.25em;}
+.modal {background:rgba(0, 0, 0, 0.8); width:100%; display:inline-block; margin:0 auto; padding:2em 0; vertical-align:middle; text-align:center;}
+
+button {background:hsl(0, 0%, 80%); border:none; padding:0.3em 0.9em; box-shadow:0 0.5em 0.5em #000; font-size:1.5em; color:hsl(0, 0%, 25%); position:relative;}
+button:hover {background:hsl(0, 0%, 90%);}
+button:active {top:0.1em;}
+
+.link {display:block; margin:2em 0; text-decoration:none; font-variant:small-caps; text-transform:lowercase;}
+
+
+
+/* ==================================================================================================== *\
+   Controls
+\* ==================================================================================================== */
+#controls-click {background:hsl(0, 0%, 80%); width:5em; height:7em; margin:0 auto; box-shadow:0 0.5em 0.5em #000; border-radius:3.5em 3.5em 100% 100%; position:relative;}
+
+#controls-click:before, #controls-click:after {content:''; display:block; background:hsl(0, 0%, 25%); position:absolute;}
+#controls-click:before {height:2.5em; width:0.25em; top:0; left:50%; margin-left:-0.125em;}
+#controls-click:after {height:0.25em; width:100%; top:2.5em; left:0;}
+
+#controls-left, #controls-right {width:6em; height:2em; position:absolute; top:50%; margin-top:-1em;}
+#controls-left {background:-webkit-linear-gradient(left, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0)); background:linear-gradient(to right, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0)); right:5em;}
+#controls-right {background:-webkit-linear-gradient(right, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0)); background:linear-gradient(to left, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0)); left:5em;}
+
+#controls-left:before, #controls-right:before {content:''; display:block; border:1em solid transparent; position:absolute; top:0;}
+#controls-right:before {border-left-color:hsl(0, 0%, 80%); right:-2em;}
+#controls-left:before {border-right-color:hsl(0, 0%, 80%); left:-2em;}
+
+#controls-desc {font-size:1.2em; margin-bottom:2em;}
+
+#controls-move {position:relative; -webkit-animation:controls 5s linear infinite; animation:controls 5s linear infinite;}
+
+#controls-button {background:hsl(0, 0%, 100%); width:2.375em; height:2.5em; position:absolute; top:0; left:0; border-radius:1.75em 0 0 0;}
+
+
+
+/* ==================================================================================================== *\
+   Loading
+\* ==================================================================================================== */
+#loading {background:#000;}
+#loader {width:3em; height:3em; margin:1em auto; border-radius:50%; box-shadow:0 -0.4em 0 0 hsla(0, 0%, 100%, 1), -0.28em -0.28em 0 0 hsla(0, 0%, 100%, 0.75), -0.4em 0 0 0 hsla(0, 0%, 100%, 0.5), -0.28em 0.28em 0 0 hsla(0, 0%, 100%, 0.25); -webkit-animation:loading 0.5s linear infinite; animation:loading 0.5s linear infinite;}
+
+
+
+/* ==================================================================================================== *\
+   Media queries
+\* ==================================================================================================== */
+@media (max-width: 1000px) {
+	body {font-size:12px;}
+}

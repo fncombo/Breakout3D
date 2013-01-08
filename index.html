@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Breakout 3D</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="author" content="Eugene">
+</head>
+
+<body>
+
+	<hgroup class="hide">
+		<h1></h1>
+		<h2></h2>
+		<div id="info">
+			<div><span id="points">0</span> <span id="points-text" data-singular="point" data-plural="points">points</span></div>
+			&ndash;
+			<div><span id="lives">3</span> <span id="lives-text" data-singular="life" data-plural="lives">lives</span></div>
+			&ndash;
+			<div><span id="wraths">3</span> <span id="wraths-text" data-singular="wrath" data-plural="wraths">wraths</span></div>
+		</div>
+	</hgroup>
+
+	<div id="controls" class="overlay">
+		<div id="controls-wrap" class="modal">
+			<div id="controls-desc">
+				<h3>Fresh meat!</h3>
+				<p>Thou shall maneuver the mouse left and right to control the paddle.</p>
+				<p>Thou shall left-click and the ball shall start bouncing.</p>
+				<p>In time of need a spherical block will bless thee with extra lives or wrath points.</p>
+				<p>To unleash one's wrath and smite random blocks, thou shall left-click while the ball is in action.</p>
+				<p>Thou hereby swears to destroy ALL the blocks!</p>
+				<br>
+				<p>There are 3 levels; Godspeed!</p>
+			</div>
+			<div id="controls-move">
+				<div id="controls-click">
+					<div id="controls-button"></div>
+					<div id="controls-left"></div>
+					<div id="controls-right"></div>			
+				</div>
+			</div>
+			<a href="https://github.com/fncombo/Breakout3D" target="_blank" class="link">View source on GitHub</a>
+			<button id="play">Delay me no further!</button>
+		</div>
+	</div>
+
+	<div id="well-done" class="overlay hide">
+		<div class="modal">
+			<h3>Good job!</h3>
+			<p>You successfully managed to focus yourself for roughly [insert irrelevant number here] minutes. Shall we move on?</p>
+			<br>
+			<button id="next-level">No time to waste!</button>
+		</div>
+	</div>
+
+	<div id="died" class="overlay hide">
+		<div class="modal">
+			<h3>You have failed your quest!</h3>
+			<p>With <span id="died-points"></span> points<span id="died-wraths-text"> and <span id="died-wraths"></span> wraths</span> to spare.</p>
+			<br>
+			<button id="try-again">Let me redeem my honour!</button>
+		</div>
+	</div>
+
+	<div id="completed" class="overlay hide">
+		<div class="modal">
+			<h3>Congratulations brave knight!</h3>
+			<p>You have fearlessly conquered this mind-warping game, and have earned absolutely nothing!</p>
+			<p>Except for perhaps <span id="finish-points"></span> points, <span id="finish-lives"></span> extra lives and <span id="finish-wraths"></span> wasted wraths.</p>
+			<br>
+			<button id="replay">I wish to embark on this journey once again!</button>
+		</div>
+	</div>
+
+	<div id="loading" class="overlay">
+		<div class="modal">
+			Loading...
+			<div id="loader"></div>
+		</div>
+	</div>
+
+	<script src="three.js"></script>
+	<script src="stats.js"></script>
+	<script src="https://raw.github.com/fncombo/fncombo.js/master/fncombo.min.js"></script>
+	<script src="script.min.js"></script>
+	
+	<script src="http://www.youtube.com/player_api"></script>
+	<iframe id="music" width="640" height="360" src="http://www.youtube.com/embed/m_UHO60tkdg?enablejsapi=1" allowfullscreen>
+
+</body>
+
+</html>
