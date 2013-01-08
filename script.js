@@ -182,7 +182,7 @@
 		$loading.removeClass('hide');
 
 		// Change music
-		if ((level !== 1 && newLevel === 1) || newLevel !== 1) {
+		if ((level !== 1 && newLevel === 1) || newLevel !== 1 || newLevel !== level) {
 			changeMusic(levels[newLevel].music);
 		}
 
