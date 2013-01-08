@@ -357,7 +357,7 @@
 	// Create individual particles and push them into the geometry, 3 times, for each of the sides (left, top, right)
 	for (n = 0; n <= 2; n += 1) { // Number of sides
 
-		for (i = 0; i <= 100; i += 1) { // Number of partciles in current side
+		for (i = 0; i <= 100; i += 1) { // Number of particles in current side
 
 			switch (n) {
 
@@ -624,7 +624,7 @@
 		fence.geometry.verticesNeedUpdate = true; // Forces the update of geometry
 
 		fence.geometry.vertices.forEach(function (vertex) {
-			vertex.y = vertex.y > 20 ? 0 : vertex.y + 0.2;
+			vertex.y = vertex.y > 20 ? 0 : vertex.y + 0.2; // Move each particle up a bit. If it's too far up, reset position.
 		});
 
 	}
@@ -869,6 +869,7 @@
 
 }(document, window, THREE));
 
+// The YouTube player
 var player;
 
 // Changing the music
@@ -880,10 +881,10 @@ function changeMusic(videoId) {
 // When the player has finished loading
 function onPlayerReady(event) {
 	'use strict';
-    event.target.playVideo();
+	event.target.playVideo();
 }
 
-// When the palyer's state changes
+// When the player's state changes
 function onPlayerStateChange(event) {
 	'use strict';
 	if (event.data === 0) {
