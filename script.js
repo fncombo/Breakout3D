@@ -52,6 +52,8 @@
 			[-collisionDistance, 0, 2],
 			[-collisionDistance, collisionDistance, 3]
 		],
+		// Loading animation
+		loading = true,
 		// Last time a block was hit
 		time,
 		// Current level
@@ -264,6 +266,9 @@
 		// Reset the position of the ball
 		ball.bouncing = false;
 		ball.position.set(blocks[0].position.x, 9, 244);
+
+		// Done loading
+		loading = false;
 
 	}
 
@@ -754,6 +759,9 @@
 	 */
 	$('#next-level').onclick = function () {
 
+		// Don't trigger any weird events
+		loading = true;
+
 		// Show loading screen
 		$loading.removeClass('hide');
 
@@ -775,6 +783,9 @@
 
 		$lives.innerHTML = $wraths.innerHTML = 3;
 		$points.innerHTML = 0;
+
+		// Don't trigger any weird events
+		loading = true;
 
 		// Show loading screen
 		$loading.removeClass('hide');
@@ -818,7 +829,7 @@
 		animate();
 
 		// If all blocks have been destroyed, move on to the next level
-		if (!activeBlocks) {
+		if (!activeBlocks && !loading) {
 
 			ball.bouncing = false;
 
