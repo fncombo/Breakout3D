@@ -454,12 +454,19 @@
             fenceLength = fence.geometry.vertices.length;
 
         // Bounce off the sides of the board
-        if (ballX <= -250 || ballX >= 250) {
+        if (ballX <= -250) {
+            ball.position.x = -250;
+            velocityX = -velocityX;
+        }
+        
+        if (ballX >= 250) {
+            ball.position.x = 250;
             velocityX = -velocityX;
         }
 
         // Bounce off the top
         if (ballZ <= -250) {
+            ball.position.z = -250;
             velocityZ = -velocityZ;
         }
 
