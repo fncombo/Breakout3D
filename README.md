@@ -12,13 +12,6 @@ Each block has a 5% chance to become a special block when it's generated. Specia
 
 Using a wrath will destroy 5 random blocks. If there are less than 5 blocks left, it will destroy whatever ones remain. Special blocks can be destroyed and they will grant the same bonus as if you had hit them.
 
-##Known bugs
-This is a list of bugs that I know exist, and that are painful to experience:
-
-* Sometimes when the ball hits a block adjacent to the edge of the board, and bounces into the board, it will not bounce back off the board and continue going along the edge of it.
-
-* Sometimes the velocity of the ball is so perfect that it passes through the paddle without triggering collision because one frame the distance was too big and the next it was too late.
-
 ##Cheating
 There are a couple of ways to "cheat" available. Not intentional but rather side-effects of me being lazy to manage points, lives, and wraths. That was not a hint (wink wink).
 
