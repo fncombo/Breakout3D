@@ -4,10 +4,10 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family:'Myriad Pro';
-	src:url('fonts/myriadpro-regular-webfont.woff');
-	font-weight:normal;
-	font-style:normal;
+    font-family:'Myriad Pro';
+    src:url('fonts/myriadpro-regular-webfont.woff');
+    font-weight:normal;
+    font-style:normal;
 }
 
 @-webkit-keyframes loading {
@@ -111,5 +111,5 @@ button:active {top:0.1em;}
    Media queries
 \* ==================================================================================================== */
 @media (max-width: 1000px) {
-	body {font-size:12px;}
+    body {font-size:12px;}
 }
