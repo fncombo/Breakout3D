@@ -38,9 +38,9 @@
             distance: 3, // How far to bounce each frame
             direction: true // true for down, false for up
         },
-        // Default velocities
-        velocityX = 4 + THREE.Math.random16(),
-        velocityZ = -5 + THREE.Math.random16(),
+        // Initial velocities
+        velocityX = 0,
+        velocityZ = 0,
         // List of distances from the center of the ball that they rays should go to
         collisionPoints = [
             [0, collisionDistance, 1], // +x, +z, which velocity should be reversed (1 = z, 2 = x, 3 = both)
@@ -434,6 +434,15 @@
      */
     function animate() {
 
+        // Move the ball if it's supposed to be bouncing
+        // We do this first so the following code has a chance to handle collisions
+        // and correct unusual position states before those states are displayed to the
+        // user, preventing visual glitches.
+        if (ball.bouncing) {
+            ball.position.x += velocityX;
+            ball.position.z += velocityZ;
+        }
+
             // A new vector for the ray's destination
         var vector,
             // Ray used for detecting collisions
@@ -452,23 +461,6 @@
             // Lengths for FOR loops
             collisionPointsLength = collisionPoints.length,
             fenceLength = fence.geometry.vertices.length;
-
-        // Bounce off the sides of the board
-        if (ballX <= -250) {
-            ball.position.x = -250;
-            velocityX = -velocityX;
-        }
-        
-        if (ballX >= 250) {
-            ball.position.x = 250;
-            velocityX = -velocityX;
-        }
-
-        // Bounce off the top
-        if (ballZ <= -250) {
-            ball.position.z = -250;
-            velocityZ = -velocityZ;
-        }
 
         // If ball went below bottom and we have lives, remove a life and reset position
         if (ballZ >= 300 && parseInt($lives.innerHTML, 10) > 0) {
@@ -570,6 +562,8 @@
                             // Alter the ball's angle
                             velocityX = velocityX < 0 ? -intersection.distance - 1 : intersection.distance + 1;
 
+                            // Ensure ball doesn't end up inside the paddle
+                            ball.position.z = 244;
                         }
 
                     }
@@ -580,17 +574,28 @@
 
         });
 
+        // Bounce off the sides of the board
+        var bounceEdge = 250 - collisionDistance;
+        if (ballX <= -bounceEdge) {
+            ball.position.x = -bounceEdge;
+            velocityX = -velocityX;
+        }
+        
+        if (ballX >= bounceEdge) {
+            ball.position.x = bounceEdge;
+            velocityX = -velocityX;
+        }
+
+        // Bounce off the top
+        if (ballZ <= -bounceEdge) {
+            ball.position.z = -bounceEdge;
+            velocityZ = -velocityZ;
+        }
 
         /**
          * Ball
          */
         ball.lookAt(camera.position); // No one will probably even realize this :(
-
-        if (ball.bouncing) { // Move the ball if it's supposed to be bouncing
-            ball.position.x += velocityX;
-            ball.position.z += velocityZ;
-        }
-
 
         /**
          * Paddle
@@ -668,8 +673,8 @@
     $('canvas').onclick = function () {
 
         if (!ball.bouncing) { // If the ball is not bouncing
-
             velocityX = THREE.Math.random16() < 0.5 ? velocityX : -velocityX; // Randomize which side it goes to each time
+            velocityZ = -5 + THREE.Math.random16(); // Launch velocity!
             ball.bouncing = true; // Make it bounce
             time = new Date(); // Start recording time
 
