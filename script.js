@@ -355,9 +355,9 @@
     });
 
     // Create individual particles and push them into the geometry, 3 times, for each of the sides (left, top, right)
-    for (n = 0; n <= 2; n += 1) { // Number of sides
+    for (n = 0; n < 3; n += 1) { // Number of sides
 
-        for (i = 0; i <= 100; i += 1) { // Number of particles in current side
+        for (i = 0; i < 100; i += 1) { // Number of particles in current side
 
             switch (n) {
 
@@ -449,6 +449,8 @@
             ray,
             // List of intersecting objects
             intersects,
+            // Edge of the board
+            bounceEdge = 250 - collisionDistance,
             // Shorthands for ball positions
             ballPos = ball.position,
             ballX = ball.position.x,
@@ -559,11 +561,9 @@
                             // Bounce the paddle
                             paddle.bouncing = true;
 
-                            // Alter the ball's angle
-                            velocityX = velocityX < 0 ? -intersection.distance - 1 : intersection.distance + 1;
-
                             // Ensure ball doesn't end up inside the paddle
                             ball.position.z = 244;
+
                         }
 
                     }
@@ -575,12 +575,11 @@
         });
 
         // Bounce off the sides of the board
-        var bounceEdge = 250 - collisionDistance;
         if (ballX <= -bounceEdge) {
             ball.position.x = -bounceEdge;
             velocityX = -velocityX;
         }
-        
+
         if (ballX >= bounceEdge) {
             ball.position.x = bounceEdge;
             velocityX = -velocityX;
@@ -652,7 +651,6 @@
         vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, 0, 1); // Make a vector from the X position of the mouse
         projector.unprojectVector(vector, camera); // Ray from the camera to mouse position
         direction = vector.subSelf(camera.position).normalize(); // Align the ray with the camera
-        ray = new THREE.Ray(camera.position, direction); // Ray from the camera's position to the mouse's position
         distance = -(camera.position.z / direction.z); // Distance from the mouse to the camera
         position = camera.position.clone().addSelf(direction.multiplyScalar(distance)); // Magical maths does its work
 
