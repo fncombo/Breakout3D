@@ -292,11 +292,15 @@
 
 
     // Lights
-    light = new THREE.PointLight(0xffffff, 2);
-    light.position.set(0, 200, 500);
-    scene.add(light);
+    [-200, 200].forEach(function (distance) {
 
-    light = new THREE.SpotLight(0xffffff, 2);
+        light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(distance, 200, 500);
+        scene.add(light);
+
+    });
+
+    light = new THREE.SpotLight(0xffffff, 1);
     light.position.set(0, 350, 500);
     light.shadowCameraNear = 0.01;
     light.castShadow = true;
