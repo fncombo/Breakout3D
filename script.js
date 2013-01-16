@@ -562,6 +562,11 @@
                         // Otherwise it must have hit the paddle (but only on Z axis)
                         } else if (collisionPoint[2] === 1) {
 
+                            // Adjust velocity based on how far away from the center of the paddle the ball hit
+                            distance = ball.position.distanceTo(blocks[0].position);
+                            newVelocityX = THREE.Math.clamp(distance * 0.1, 0, 6);
+                            velocityX = velocityX < 0 ? -newVelocityX : newVelocityX;
+
                             // Bounce the paddle
                             paddle.bouncing = true;
 
