@@ -464,6 +464,8 @@
             newVelocityZ,
             // Time difference
             timeDiff,
+            // Distance from the ball to center of the paddle
+            distance,
             // Lengths for FOR loops
             collisionPointsLength = collisionPoints.length,
             fenceLength = fence.geometry.vertices.length;
