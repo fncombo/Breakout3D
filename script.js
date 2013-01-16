@@ -675,7 +675,7 @@
     $('canvas').onclick = function () {
 
         if (!ball.bouncing) { // If the ball is not bouncing
-            velocityX = THREE.Math.random16() < 0.5 ? velocityX : -velocityX; // Randomize which side it goes to each time
+            velocityX = 0; // Make the ball go straight up
             velocityZ = -5 + THREE.Math.random16(); // Launch velocity!
             ball.bouncing = true; // Make it bounce
             time = new Date(); // Start recording time
