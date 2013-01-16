@@ -555,7 +555,7 @@
 
                             // Add points depending on how much time has elapsed since last block collision
                             timeDiff = 20 - ((new Date() - time) * 0.01);
-                            timeDiff = timeDiff < 0 ? 1 : timeDiff; // If the difference is negative, only assign 1 point
+                            timeDiff = timeDiff || 1; // If the difference is negative, only assign 1 point
                             addNumber($points, Math.round(timeDiff));
                             time = new Date();
 
