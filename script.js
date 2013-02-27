@@ -923,3 +923,21 @@ function onYouTubePlayerAPIReady() {
         }
     });
 }
+
+// Turning the sound on and off
+$('#sound').onclick = function () {
+
+    'use strict';
+
+    var $span = $('span', this),
+        state = $span.innerHTML === 'on' ? 1 : 0;
+
+    if (state) {
+        player.stopVideo();
+        $span.innerHTML = 'off';
+    } else {
+        player.playVideo();
+        $span.innerHTML = 'on';
+    }
+
+};
