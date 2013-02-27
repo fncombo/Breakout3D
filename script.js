@@ -822,6 +822,25 @@
     };
 
 
+    /**
+     * Secret key to skip a level
+     */
+    document.onkeypress = function (event) {
+
+        // Allow to skip only when pressed the "n" key
+        if (event.keyCode !== 110) {
+            return;
+        }
+
+        var confirmation = confirm('About to skip to the next level. Are you sure?');
+
+        if (confirmation) {
+            setLevel(level === 3 ? 1 : level + 1);
+        }
+
+    };
+
+
     // Initiate the stats if needed
     if (fps) {
         stats = new Stats();
