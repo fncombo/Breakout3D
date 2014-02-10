@@ -1,3 +1,6 @@
+
+/* globals $, THREE, Stats, onYouTubePlayerAPIReady, requestAnimationFrame, YT */
+
 (function (document, window, THREE) {
 
     'use strict';
@@ -465,10 +468,7 @@
             // Time difference
             timeDiff,
             // Distance from the ball to center of the paddle
-            distance,
-            // Lengths for FOR loops
-            collisionPointsLength = collisionPoints.length,
-            fenceLength = fence.geometry.vertices.length;
+            distance;
 
         // If ball went below bottom and we have lives, remove a life and reset position
         if (ballZ >= 300 && parseInt($lives.innerHTML, 10) > 0) {
@@ -657,7 +657,7 @@
      */
     $('canvas').onmousemove = function (event) {
 
-        var vector, direction, ray, distance, position;
+        var vector, direction, distance, position;
 
         vector = new THREE.Vector3((event.clientX / window.innerWidth) * 2 - 1, 0, 1); // Make a vector from the X position of the mouse
         projector.unprojectVector(vector, camera); // Ray from the camera to mouse position
