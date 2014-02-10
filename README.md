@@ -15,5 +15,5 @@ Using a wrath will destroy 5 random blocks. If there are less than 5 blocks left
 ##Cheating
 There are a couple of ways to "cheat" available. Not intentional but rather side-effects of me being lazy to manage points, lives, and wraths. That was not a hint (wink wink).
 
-[0]: http://fncombo.github.com/Breakout3D
+[0]: http://fncombo.github.io/breakout-3d
 [1]: https://github.com/mrdoob/three.js
