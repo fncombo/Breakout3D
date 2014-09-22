@@ -915,7 +915,7 @@ var player;
 // Changing the music
 function changeMusic(videoId) {
     'use strict';
-    if (!player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
+    if (!player || !player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
         return;
     }
     player.loadVideoById(videoId);
@@ -951,7 +951,7 @@ $('#sound').onclick = function () {
 
     'use strict';
 
-    if (!player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
+    if (!player || !player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
         return;
     }
 
