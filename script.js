@@ -828,7 +828,7 @@
     document.onkeypress = function (event) {
 
         // Allow to skip only when pressed the "n" key
-        if (event.keyCode !== 110) {
+        if (event.keyCode !== 110 && event.key !== 'n') {
             return;
         }
 
@@ -915,6 +915,9 @@ var player;
 // Changing the music
 function changeMusic(videoId) {
     'use strict';
+    if (!player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
+        return;
+    }
     player.loadVideoById(videoId);
 }
 
@@ -947,6 +950,10 @@ function onYouTubePlayerAPIReady() {
 $('#sound').onclick = function () {
 
     'use strict';
+
+    if (!player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
+        return;
+    }
 
     var $span = $('span', this),
         state = $span.innerHTML === 'on' ? 1 : 0;
