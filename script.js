@@ -1,6 +1,4 @@
 
-/* globals $, THREE, Stats, onYouTubePlayerAPIReady, requestAnimationFrame, YT */
-
 (function (document, window, THREE) {
 
     'use strict';
@@ -66,7 +64,6 @@
             1: {
                 title: 'Level 1', // Title to display
                 name: 'The Executioner', // the name of the level
-                music: 'm_UHO60tkdg', // Background music to play
                 bgColor: 0x15030f, // Background color
                 blockColors: { // Materials of different blocks in the map, can have as many as you want
                     0: new THREE.MeshLambertMaterial({ color: 0x0b0109 }),
@@ -99,7 +96,6 @@
             2: {
                 title: 'Level 2',
                 name: 'Black Liliana',
-                music: 'LsGr8V1Q_1U',
                 bgColor: 0x05052b,
                 blockColors: {
                     0: new THREE.MeshLambertMaterial({ color: 0x32386a }),
@@ -133,7 +129,6 @@
             3: {
                 title: 'Final Level',
                 name: 'Mirage Coordinator',
-                music: 'p85zQLOMlUY',
                 bgColor: 0x090708,
                 blockColors: {
                     0: new THREE.MeshLambertMaterial({ color: 0xfdea46 }),
@@ -182,11 +177,6 @@
             // Block geometries
             normalGeometry = new THREE.CubeGeometry(size, size * 0.5, size),
             specialGeometry = new THREE.SphereGeometry(size / 2, size, size);
-
-        // Change music
-        if ((level !== 1 && newLevel === 1) || newLevel !== 1 || newLevel !== level) {
-            changeMusic(levels[newLevel].music);
-        }
 
         // Set the meta of the level
         level = newLevel;
@@ -908,62 +898,3 @@
     }());
 
 }(document, window, THREE));
-
-// The YouTube player
-var player;
-
-// Changing the music
-function changeMusic(videoId) {
-    'use strict';
-    if (!player || !player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
-        return;
-    }
-    player.loadVideoById(videoId);
-}
-
-// When the player has finished loading
-function onPlayerReady(event) {
-    'use strict';
-    event.target.playVideo();
-}
-
-// When the player's state changes
-function onPlayerStateChange(event) {
-    'use strict';
-    if (event.data === 0) {
-        event.target.playVideo();
-    }
-}
-
-// When the API is ready
-function onYouTubePlayerAPIReady() {
-    'use strict';
-    player = new YT.Player('music', {
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-
-// Turning the sound on and off
-$('#sound').onclick = function () {
-
-    'use strict';
-
-    if (!player || !player.hasOwnProperty('stopVideo') || !player.hasOwnProperty('playVideo')) {
-        return;
-    }
-
-    var $span = $('span', this),
-        state = $span.innerHTML === 'on' ? 1 : 0;
-
-    if (state) {
-        player.stopVideo();
-        $span.innerHTML = 'off';
-    } else {
-        player.playVideo();
-        $span.innerHTML = 'on';
-    }
-
-};
