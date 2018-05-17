@@ -3,12 +3,6 @@
 \* ==================================================================================================== */
 
 @charset "UTF-8";
-@-webkit-keyframes loading {
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
 @keyframes loading {
     to {
         transform: rotate(360deg);
@@ -64,7 +58,6 @@ hgroup {
     top: 3%;
     text-align: center;
     opacity: 1;
-    -webkit-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
 
@@ -112,7 +105,6 @@ h3 {
 .hide {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
 
@@ -129,7 +121,6 @@ h3 {
     left: 0;
     text-align: center;
     line-height: 1.5;
-    -webkit-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
 
@@ -222,13 +213,11 @@ button:active {
 }
 
 #controls-left {
-    background: -webkit-linear-gradient(left, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0));
     background: linear-gradient(to right, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0));
     right: 5em;
 }
 
 #controls-right {
-    background: -webkit-linear-gradient(right, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0));
     background: linear-gradient(to left, hsl(0, 0%, 80%), hsla(0, 0%, 80%, 0));
     left: 5em;
 }
@@ -258,7 +247,6 @@ button:active {
 
 #controls-move {
     position: relative;
-    -webkit-animation: controls 5s linear infinite;
     animation: controls 5s linear infinite;
 }
 
@@ -286,7 +274,6 @@ button:active {
     margin: 1em auto;
     border-radius: 50%;
     box-shadow: 0 -0.4em 0 0 hsla(0, 0%, 100%, 1), -0.28em -0.28em 0 0 hsla(0, 0%, 100%, 0.75), -0.4em 0 0 0 hsla(0, 0%, 100%, 0.5), -0.28em 0.28em 0 0 hsla(0, 0%, 100%, 0.25);
-    -webkit-animation: loading 0.5s linear infinite;
     animation: loading 0.5s linear infinite;
 }
 
