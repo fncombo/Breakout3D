@@ -54,7 +54,7 @@ iframe {
 hgroup {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
-    height: 8rem;
+    padding: 1rem 0;
     position: absolute;
     top: 3%;
     text-align: center;
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    margin: 1.2rem 0 -1rem;
+    margin: 0 0 -1rem 0;
     font-size: 1rem;
     opacity: 0.5;
 }
@@ -80,6 +80,7 @@ h2 {
 
 h3 {
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* ==================================================================================================== *\
@@ -115,6 +116,9 @@ h3 {
 
 .overlay {
     background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -125,19 +129,9 @@ h3 {
     transition: all 0.2s linear;
 }
 
-.overlay:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-left: -0.25rem;
-}
-
 .modal {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
-    display: inline-block;
-    margin: 0 auto;
     padding: 2rem 0;
     vertical-align: middle;
     text-align: center;
@@ -146,7 +140,7 @@ h3 {
 button {
     background: hsl(0, 0%, 80%);
     border: none;
-    padding: 0.3rem 0.9rem;
+    padding: 0.5rem 1rem;
     box-shadow: 0 0.5rem 0.5rem #000;
     font-size: 1.5rem;
     color: hsl(0, 0%, 25%);
@@ -165,8 +159,6 @@ button:active {
     display: block;
     margin: 2rem 0;
     text-decoration: none;
-    font-variant: small-caps;
-    text-transform: lowercase;
 }
 
 /* ==================================================================================================== *\
@@ -244,6 +236,14 @@ button:active {
 #controls-desc {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+}
+
+#controls-desc p {
+    margin-bottom: 0.25rem;
+}
+
+#controls-desc p:last-child {
+    margin-top: 1rem;
 }
 
 #controls-move {
