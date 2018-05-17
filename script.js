@@ -323,7 +323,7 @@
 
 
     // Paddle
-    geometry = new THREE.CubeGeometry(80, 20, 3);
+    geometry = new THREE.CubeGeometry(100, 20, 3);
     material = new THREE.MeshBasicMaterial();
     blocks[0] = new THREE.Mesh(geometry, material); // Paddle is the first object in the blocks array
 
