@@ -1,9 +1,8 @@
-
 (function (document, window, THREE) {
 
     'use strict';
 
-        // Core THREE variables
+    // Core THREE variables
     var renderer, camera, scene, projector,
         // For showing current FPS
         fps = window.location.hash === '#fps' ? true : false, stats,
@@ -169,7 +168,7 @@
      */
     function setLevel(newLevel) {
 
-            // Loop + block identifiers
+        // Loop + block identifiers
         var i, n, b, character, special,
             // Textures
             textures = [],
@@ -358,20 +357,20 @@
 
             switch (n) {
 
-            case 0: // Left
-                x = -250;
-                z = THREE.Math.randInt(-250, 250);
-                break;
+                case 0: // Left
+                    x = -250;
+                    z = THREE.Math.randInt(-250, 250);
+                    break;
 
-            case 1: // Top
-                x = 250;
-                z = THREE.Math.randInt(-250, 250);
-                break;
+                case 1: // Top
+                    x = 250;
+                    z = THREE.Math.randInt(-250, 250);
+                    break;
 
-            case 2: // Right
-                x = THREE.Math.randInt(-250, 250);
-                z = -250;
-                break;
+                case 2: // Right
+                    x = THREE.Math.randInt(-250, 250);
+                    z = -250;
+                    break;
 
             }
 
@@ -440,7 +439,7 @@
             ball.position.z += velocityZ;
         }
 
-            // A new vector for the ray's destination
+        // A new vector for the ray's destination
         var vector,
             // Ray used for detecting collisions
             ray,
@@ -480,7 +479,7 @@
                 $hgroup.addClass('hide');
                 $('#died').removeClass('hide');
 
-            // If there are lives left, reset the position
+                // If there are lives left, reset the position
             } else {
 
                 ball.position.set(blocks[0].position.x, 9, 244);
@@ -519,16 +518,16 @@
 
                             // Reverse the direction of the ball
                             switch (collisionPoint[2]) {
-                            case 1: // z
-                                velocityZ = -velocityZ;
-                                break;
-                            case 2: // x
-                                velocityX = -velocityX;
-                                break;
-                            case 3: // Both
-                                velocityX = -velocityX;
-                                velocityZ = -velocityZ;
-                                break;
+                                case 1: // z
+                                    velocityZ = -velocityZ;
+                                    break;
+                                case 2: // x
+                                    velocityX = -velocityX;
+                                    break;
+                                case 3: // Both
+                                    velocityX = -velocityX;
+                                    velocityZ = -velocityZ;
+                                    break;
                             }
 
                         }
@@ -551,7 +550,7 @@
                             addNumber($points, Math.round(timeDiff));
                             time = new Date();
 
-                        // Otherwise it must have hit the paddle (but only on Z axis)
+                            // Otherwise it must have hit the paddle (but only on Z axis)
                         } else if (collisionPoint[2] === 1) {
 
                             // Adjust velocity based on how far away from the center of the paddle the ball hit
