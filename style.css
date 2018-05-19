@@ -47,6 +47,22 @@ iframe {
     left: -9999px;
 }
 
+#mobile-warning.overlay {
+    background: #000;
+    z-index: 100;
+}
+
+#mobile-warning h3 {
+    margin: 0;
+}
+
+#mobile-warning p,
+#mobile-warning a {
+    display: block;
+    margin: 1rem 1rem 0;
+    font-size: 1rem;
+}
+
 /* ==================================================================================================== *\
    Headings
 \* ==================================================================================================== */
